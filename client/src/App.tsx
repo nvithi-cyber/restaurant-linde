@@ -22,7 +22,9 @@ import SaeaeliPage from "./pages/SaeaeliPage";
 function AppRoutes() {
   return (
     <Switch>
+      <Route path="" component={Home} />
       <Route path="/" component={Home} />
+      <Route path="/index.html" component={Home} />
       <Route path="/bistro" component={BistroPage} />
       <Route path="/saeaeli" component={SaeaeliPage} />
       <Route path="/lounge-wine-room" component={LoungeWineRoomPage} />
