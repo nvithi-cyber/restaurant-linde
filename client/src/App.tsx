@@ -18,9 +18,15 @@ import LoungeWineRoomPage from "./pages/LoungeWineRoomPage";
 import ReservationPage from "./pages/ReservationPage";
 import SaeaeliPage from "./pages/SaeaeliPage";
 
+const routerBase =
+  import.meta.env.BASE_URL === "/"
+    ? ""
+    : import.meta.env.BASE_URL.replace(/\/$/, "");
+
 function AppRoutes() {
   return (
     <Switch>
+      <Route path="" component={Home} />
       <Route path="/" component={Home} />
       <Route path="/bistro" component={BistroPage} />
       <Route path="/saeaeli" component={SaeaeliPage} />
@@ -40,7 +46,7 @@ function App() {
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
-          <Router base={import.meta.env.BASE_URL}>
+          <Router base={routerBase}>
             <AppRoutes />
           </Router>
         </TooltipProvider>
