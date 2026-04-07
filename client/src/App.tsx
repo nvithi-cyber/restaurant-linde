@@ -8,6 +8,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { Route, Router, Switch } from "wouter";
+import { useHashLocation } from "wouter/use-hash-location";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import BistroPage from "./pages/BistroPage";
@@ -18,15 +19,9 @@ import LoungeWineRoomPage from "./pages/LoungeWineRoomPage";
 import ReservationPage from "./pages/ReservationPage";
 import SaeaeliPage from "./pages/SaeaeliPage";
 
-const routerBase =
-  import.meta.env.BASE_URL === "/"
-    ? ""
-    : import.meta.env.BASE_URL.replace(/\/$/, "");
-
 function AppRoutes() {
   return (
     <Switch>
-      <Route path="" component={Home} />
       <Route path="/" component={Home} />
       <Route path="/bistro" component={BistroPage} />
       <Route path="/saeaeli" component={SaeaeliPage} />
@@ -46,7 +41,7 @@ function App() {
       <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
-          <Router base={routerBase}>
+          <Router hook={useHashLocation}>
             <AppRoutes />
           </Router>
         </TooltipProvider>
