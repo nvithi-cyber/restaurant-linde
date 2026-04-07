@@ -1,0 +1,4 @@
+- [ ] Vercel-CLI-Deployment mit `npx vercel --yes` im Projektordner prüfen
+- [ ] Falls vorhanden, Deployment mit `npx vercel --token $VERCEL_TOKEN` versuchen
+- [ ] Falls Vercel per CLI nicht funktioniert, Netlify-Deployment als Fallback prüfen
+- [ ] Öffentliche HTTPS-URL verifizieren und dem Nutzer zurückgeben
